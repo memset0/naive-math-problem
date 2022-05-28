@@ -1,0 +1,212 @@
+body {
+  --background-color: #0F261E;
+  --font-color: #FFFFFF;
+  --accent-color: #3A6D67;
+  --font-family: -apple-system, "Noto Sans", "Helvetica Neue", Helvetica, "Nimbus Sans L", Arial, "Liberation Sans", "PingFang SC", "Hiragino Sans GB", "Noto Sans CJK SC", "Source Han Sans SC", "Source Han Sans CN", "Microsoft YaHei", "Wenquanyi Micro Hei", "WenQuanYi Zen Hei", "ST Heiti", SimHei, "WenQuanYi Zen Hei Sharp", sans-serif;
+  --serif-font-family: Georgia, "Nimbus Roman No9 L", "Songti SC", "Noto Serif CJK SC", "Source Han Serif SC", "Source Han Serif CN", STSong, "AR PL New Sung", "AR PL SungtiL GB", NSimSun, SimSun, "TW\-Sung", "WenQuanYi Bitmap Song", "AR PL UMing CN", "AR PL UMing HK", "AR PL UMing TW", "AR PL UMing TW MBE", PMingLiU, MingLiU, serif;
+}
+
+.math {
+	zoom: 84.5%;
+}
+
+.date,
+.source {
+	font-size: 18px;
+	line-height: 20px;
+	display: block;
+	width: 100%;
+	text-align: right;
+	color: rgba(255, 255, 255, .75);
+  margin-top: 10px;
+  font-family: var(--serif-font-family);
+}
+.date {
+	margin-top: -20px !important;
+}
+.date:before,
+.source:before {
+	font-size: 15px;
+	padding-right: 5px;
+}
+.date:before {
+	content: '📅';
+}
+.source:before {
+  content: '📬';
+}
+
+.inline-hr {
+  display: block;
+  unicode-bidi: isolate;
+  margin-block-start: 0.5em;
+  margin-block-end: 0.5em;
+  margin-inline-start: auto;
+  margin-inline-end: auto;
+  overflow: hidden;
+  border-style: inset;
+  border-width: 1px;
+}
+
+.markdeepFooter {
+	visibility: hidden;
+}
+
+body {
+	margin: auto !important;   /* fix the conflict with han.js */
+  letter-spacing: .35px;
+  line-height: 165% !important;
+}
+
+/* Request lanscape from the printer/browser */
+@page {
+    size: landscape;
+    margin-bottom: 100px;
+}
+
+.md div.title {
+    font-family: var(--serif-font-family);
+    margin-top: 250px;
+    margin-bottom: 40px;
+    font-size:  50px;
+    font-weight: bold;
+    counter-increment: page;
+}
+
+.md div.subtitle {
+    font-size: 30px;
+}
+
+.md hr {
+    page-break-before: always;
+}
+
+body#md {
+    width: 900px;
+    max-width: 100%;
+    font-size: 25px;
+    padding: 40px;
+    counter-reset: page;
+    font-family: var(--font-family);
+    color: var(--font-color);
+    background-color: var(--background-color);
+}
+
+/* Disable section numbering */
+.md h1:before {content: ""}
+.md h2:before {content: ""}
+
+.md svg.diagram {
+    zoom: 150%;
+}
+
+/* Sections become presentation sections */
+.md h1, .md .nonumberh1 {
+    page-break-before: always;
+    width: 1100px;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding-top: 300px;
+    padding-bottom: 20px;
+    border: none;
+    color: var(--accent-color);
+    margin-left: -100px;
+    margin-right:-100px;
+    font-size: 50px;
+    counter-increment: page;
+}
+
+/* Subsections become slides */
+.md h2, .md .nonumberh2 {
+    page-break-before: always;
+    width: 1100px;
+    text-align: center;
+    background: var(--accent-color);
+    color: white;
+    margin-top: 100px;
+    margin-bottom: 50px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border: none;
+    margin-left: -100px;
+    margin-right:-100px;
+    font-size: 34px;
+    counter-increment: page;
+}
+
+@media print{
+    footer {
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        color: #AAA;
+        font-size: 50%;
+    }
+}
+
+@media screen {
+    footer { display: none }
+    
+    .md h1, .md .nonumberh1 {
+        /* Show slide divisions */
+        border-top: 1px solid black;
+    }
+}
+
+/* Hide HR in printing */
+@media print {
+  .md hr {
+    visibility: hidden;
+  }
+}
+
+.md hr {
+    counter-increment: page;
+}
+
+.md code {
+    font-size: 100%;
+}
+
+.md pre.listing {
+    font-size: 80%;
+    border: 1px solid #CCC;
+}
+
+.md strong, .md b {
+    color: var(--accent-color);
+}
+
+.md table {
+    font-size: 100%;
+    background-color: #eee;
+}
+
+.md table.table td {
+    border: none;
+}
+
+.md table.table th {
+    background-color: black;
+    color: white;
+    border: none;
+    font-family: Verdana,Helvetica,Arial,sans-serif;
+}
+
+.md table.table th + th {
+    border-left: 3px solid white;
+}
+
+.md table.table td + td {
+    border-left: 3px solid white;
+}
+
+.md table.table tr:nth-child(n) {
+    background-color: none;
+}
+
+.md svg.diagram {
+  stroke: var(--font-color);
+  fill: var(--font-color);
+}
