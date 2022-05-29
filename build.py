@@ -22,8 +22,13 @@ print_settings = {
     "version": 2,
     "isHeaderFooterEnabled": False,
     "isCssBackgroundEnabled": True,
-    # "customMargins": {},
-    # "marginsType": 2,
+    "customMargins": {
+        "margin-top": "0cm",
+        "margin-bottom": "0cm",
+        "margin-left": "0cm",
+        "margin-right": "0cm"
+    },
+    "marginsType": 2,
     # "scaling": 100,
     # "scalingType": 3,
     # "scalingTypePdf": 3,
