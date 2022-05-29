@@ -7,24 +7,27 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+
     - name: Checkout
       uses: actions/checkout@v1
-    - name: Convert Statement to PDF
-      uses: misaelnieto/web_to_pdf_action@master
+
+    - name: Setup Python
+      uses: actions/setup-python@v3
       with:
-        webPageURL: files://${{ env.GITHUB_WORKSPACE }}/slides.md.html
-        outputFile: ./dist/slides.pdf
-        usePuppeteer: true
-        useScreen: true
-        pdfOptions: '{}'
-    - name: Convert Solutions to PDF
-      uses: misaelnieto/web_to_pdf_action@master
+        python-version: '3.x'
+        architecture: 'x64'
+
+    - name: Setup Chrome Driver
+      uses: nanasess/setup-chromedriver@v1
       with:
-        webPageURL: files://${{ env.GITHUB_WORKSPACE }}/latex.md.html
-        outputFile: ./dist/latex.pdf
-        usePuppeteer: true
-        useScreen: true
-        pdfOptions: '{}'
+        chromedriver-version: '88.0.4324.96'
+    
+    - name: Install selenium
+      run: pip install selenium
+    
+    - name: Print to PDF
+      run: python build.py
+
     - name: Upload Artifacts
       uses: actions/upload-artifact@v2
       with:
