@@ -27,6 +27,7 @@ jobs:
     
     - name: Clean dist folder
       run: rd /s /q dist
+      shell: cmd
     
     - name: Convert Statement to PDF
       run: python build-slides.py
