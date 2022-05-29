@@ -1,0 +1,32 @@
+name: Generate PDF
+on:
+  push:
+    branches:
+      - master
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v1
+    - name: Convert Statement to PDF
+      uses: misaelnieto/web_to_pdf_action@master
+      with:
+        webPageURL: files://${{ env.GITHUB_WORKSPACE }}/slides.md.html
+        outputFile: ./dist/slides.pdf
+        usePuppeteer: true
+        useScreen: true
+        pdfOptions: '{}'
+    - name: Convert Solutions to PDF
+      uses: misaelnieto/web_to_pdf_action@master
+      with:
+        webPageURL: files://${{ env.GITHUB_WORKSPACE }}/latex.md.html
+        outputFile: ./dist/latex.pdf
+        usePuppeteer: true
+        useScreen: true
+        pdfOptions: '{}'
+    - name: Upload Artifacts
+      uses: actions/upload-artifact@v2
+      with:
+        name: artifacts
+        path: ./dist
