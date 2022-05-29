@@ -25,8 +25,14 @@ jobs:
     - name: Install selenium
       run: pip install selenium
     
-    - name: Convert to PDF
-      run: python build.py
+    - name: Clean dist folder
+      run: rd /s /q dist
+    
+    - name: Convert Statement to PDF
+      run: python build-slides.py
+    
+    - name: Convert Solution to PDF
+      run: python build-latex.py
 
     - name: Upload artifacts
       uses: actions/upload-artifact@v2

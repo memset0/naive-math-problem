@@ -6,6 +6,8 @@ from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 
 dirname = path.abspath(path.dirname(__file__))
+if not os.path.exists(path.join(dirname, 'dist')):
+    os.mkdir(path.join(dirname, 'dist'))
 
 chrome_options = Options()
 # chrome_options.add_argument('--headless')
@@ -42,27 +44,11 @@ chrome_options.add_argument('--kiosk-printing')
 chrome_options.add_argument('--enable-print-browser')
 
 driver = webdriver.Chrome(chrome_options=chrome_options, )
+driver.get("file://" + path.join(dirname, 'slides.md.html'))
 
+time.sleep(5)
 
-def convertToPdf(source, delay):
-    driver.get("file://" + path.join(dirname, source))
+driver.save_screenshot('dist/screenshot-slides.png')
+driver.execute_script('window.print();')
 
-    # driver.implicitly_wait(10)
-    # driver.find_element_by_id("md")
-    time.sleep(delay)
-
-    driver.save_screenshot('dist/screenshot-' + source + '.png')
-    driver.execute_script('window.print();')
-
-
-if os.path.exists(path.join(dirname, 'dist')):
-    for filename in os.listdir(path.join(dirname, 'dist')):
-        os.remove(path.join(dirname, 'dist', filename))
-    os.removedirs(path.join(dirname, 'dist'))
-os.mkdir(path.join(dirname, 'dist'))
-
-convertToPdf('slides.md.html', 5)
-convertToPdf('latex.md.html', 10)
-
-print(os.listdir(path.join(dirname, 'dist')))
 driver.quit()
