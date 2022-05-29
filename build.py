@@ -19,7 +19,14 @@ print_settings = {
         "account": "",
     }],
     "selectedDestinationId": "Save as PDF",
-    "version": 2
+    "version": 2,
+    "isHeaderFooterEnabled": False,
+    "isCssBackgroundEnabled": True,
+    "customMargins": {},
+    "marginsType": 2,
+    "scaling": 175,
+    "scalingType": 3,
+    "scalingTypePdf": 3,
 }
 prefs = {
     'printing.print_preview_sticky_settings.appState': json.dumps(print_settings),
@@ -27,19 +34,19 @@ prefs = {
 }
 chrome_options.add_experimental_option('prefs', prefs)
 chrome_options.add_argument('--kiosk-printing')
+chrome_options.add_argument('--enable-print-browser')
 
-driver = webdriver.Chrome(
-    chrome_options=chrome_options,
-)
+driver = webdriver.Chrome(chrome_options=chrome_options, )
+
 
 def convertToPdf(source, delay):
     driver.get("file://" + path.join(dirname, source))
-    
+
     # driver.implicitly_wait(10)
     # driver.find_element_by_id("md")
     time.sleep(delay)
-    
-    driver.save_screenshot('dist/test.png')
+
+    driver.save_screenshot('dist/screenshot-' + source + '.png')
     driver.execute_script('window.print();')
 
 
@@ -49,7 +56,8 @@ if os.path.exists(path.join(dirname, 'dist')):
     os.removedirs(path.join(dirname, 'dist'))
 os.mkdir(path.join(dirname, 'dist'))
 
-convertToPdf('slides.md.html', 3)
-convertToPdf('latex.md.html', 5)
+convertToPdf('slides.md.html', 5)
+convertToPdf('latex.md.html', 10)
 
 print(os.listdir(path.join(dirname, 'dist')))
+driver.quit()
