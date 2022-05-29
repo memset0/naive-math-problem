@@ -8,7 +8,7 @@ from selenium.webdriver.chrome.options import Options
 dirname = path.abspath(path.dirname(__file__))
 
 chrome_options = Options()
-chrome_options.add_argument('--headless')
+# chrome_options.add_argument('--headless')
 chrome_options.add_argument('--log-level=2')
 chrome_options.add_argument('--window-size=1920x1024')
 
