@@ -51,3 +51,5 @@ os.mkdir(path.join(dirname, 'dist'))
 
 convertToPdf('slides.md.html', 3)
 convertToPdf('latex.md.html', 5)
+
+print(os.listdir(path.join(dirname, 'dist')))
