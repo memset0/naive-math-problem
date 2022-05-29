@@ -39,7 +39,7 @@ def convertToPdf(source, delay):
     # driver.find_element_by_id("md")
     time.sleep(delay)
     
-    # driver.save_screenshot('test.png')
+    driver.save_screenshot('dist/test.png')
     driver.execute_script('window.print();')
 
 
