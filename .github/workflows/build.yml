@@ -25,9 +25,9 @@ jobs:
     - name: Install selenium
       run: pip install selenium
     
-    - name: Clean dist folder
-      run: rd /s /q dist
-      shell: cmd
+    # - name: Clean dist folder
+    #   run: rd /s /q dist
+    #   shell: cmd
     
     - name: Convert Statement to PDF
       run: python build-slides.py
