@@ -22,11 +22,11 @@ print_settings = {
     "version": 2,
     "isHeaderFooterEnabled": False,
     "isCssBackgroundEnabled": True,
-    "customMargins": {},
-    "marginsType": 2,
-    "scaling": 175,
-    "scalingType": 3,
-    "scalingTypePdf": 3,
+    # "customMargins": {},
+    # "marginsType": 2,
+    # "scaling": 100,
+    # "scalingType": 3,
+    # "scalingTypePdf": 3,
 }
 prefs = {
     'printing.print_preview_sticky_settings.appState': json.dumps(print_settings),
