@@ -18,11 +18,12 @@ span.leaf-god:after {
 }
 
 .math {
-	zoom: 89.5%;
+  zoom: 89.5%;
 }
 
 body {
-	margin: auto !important;   /* fix the conflict with han.js */
+  margin: auto !important; /* fix the conflict with han.js */
+  text-align: left;
 }
 
 /* Style sheet for Markdeep that corresponds closely to the default Latex article format 
@@ -38,7 +39,7 @@ body#md {
 }
 
 .md div.title {
-  font-family: Palatino,Georgia,"Times New Roman",serif;
+  font-family: Palatino, Georgia, 'Times New Roman', serif;
   font-weight: normal;
   font-size: 24px;
   padding-top: 170px;
@@ -51,7 +52,7 @@ body#md {
   }
 
   .md div.title {
-      padding-top: 150px;
+    padding-top: 150px;
   }
 }
 
@@ -60,15 +61,17 @@ body#md {
   padding-bottom: 12px;
 }
 
-.md h1, .md div.nonumberh1 {
-  font-family: Palatino,Georgia,"Times New Roman",serif;
+.md h1,
+.md div.nonumberh1 {
+  font-family: Palatino, Georgia, 'Times New Roman', serif;
   border: none;
   font-size: 21px;
   color: #000;
 }
 
-.md h2, .md div.nonumberh2 {
-  font-family: Palatino,Georgia,"Times New Roman",serif;
+.md h2,
+.md div.nonumberh2 {
+  font-family: Palatino, Georgia, 'Times New Roman', serif;
   border: none;
   font-size: 17px;
   color: #000;
@@ -80,12 +83,19 @@ body#md {
   top: -0.4em;
 }
 
-.md sub { 
-  top: 0.4em; 
+.md sub {
+  top: 0.4em;
 }
 
-.md h3, .md h4, .md h5, .md h6, .md div.nonumberh3, .md div.nonumberh4, .md div.nonumberh5, .md div.nonumberh6 {
-  font-family: Palatino,Georgia,"Times New Roman",serif;
+.md h3,
+.md h4,
+.md h5,
+.md h6,
+.md div.nonumberh3,
+.md div.nonumberh4,
+.md div.nonumberh5,
+.md div.nonumberh6 {
+  font-family: Palatino, Georgia, 'Times New Roman', serif;
   border: none;
   font-size: 15px;
   color: #000;
@@ -102,7 +112,7 @@ body#md {
 }
 
 .md div.endnote {
-   font-size: 11px;
+  font-size: 11px;
 }
 
 .md div.bib b {
@@ -110,29 +120,30 @@ body#md {
 }
 
 .md code {
-    font-size: 82%;
+  font-size: 82%;
 }
 
 .md svg.diagram {
-    zoom: 80%;
+  zoom: 80%;
 }
 
-
-.md ul li.asterisk:before, .md ul li.minus:before {
-    content: "●";
-    display: block;
-    float: left;
-    width: 1.2em;
-    margin-left: -18px;
+.md ul li.asterisk:before,
+.md ul li.minus:before {
+  content: '●';
+  display: block;
+  float: left;
+  width: 1.2em;
+  margin-left: -18px;
 }
 
-.md ul li.asterisk, .md ul li.minus {
-    list-style-type: none;
-    margin-bottom: 10px;
-    padding-left: 4pt;
+.md ul li.asterisk,
+.md ul li.minus {
+  list-style-type: none;
+  margin-bottom: 10px;
+  padding-left: 4pt;
 }
 
 .md ol li {
-    margin-bottom: 10px;
-    padding-left: 4pt;
+  margin-bottom: 10px;
+  padding-left: 4pt;
 }
