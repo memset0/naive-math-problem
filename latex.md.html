@@ -181,7 +181,7 @@ $$
 
 ## 解析
 
-1. 代入递推式得原命题即：
+1. 代入递推式得原命题即
 
    $$
    \ln a_1\le \frac{a_1}{e}
@@ -189,7 +189,7 @@ $$
    
    可用求导证明。
    
-2. 假设 $a_1\ge e$，归纳： 
+2. 假设 $a_1\ge e$，归纳：
    $$
    a_{n+1} = a_1 \ln a_n \ge a_1 \ge e
    $$
@@ -204,10 +204,7 @@ $$
    由 $\ln x \le x-1$，即证
 
    $$
-   \begin{aligned}
-   & \frac{\frac 1e - 1}{m-2} &lt; \ln \left(\frac {a_1}e \right) \\
-   \Leftarrow\quad & e^{\frac 1e - 1} &lt; \left( \frac{a_1} e \right)^{m-2} \\
-   \end{aligned}
+   \frac 1e - 1 &lt; (m-2) \ln \left(\frac {a_1}e \right) \\
    $$
    
    类似于第一问的证明，可以得到：  
@@ -220,9 +217,12 @@ $$
 
    $$
    \begin{aligned}
-   & e^{\frac 1 {a_1}} \leq \frac {a_1^{m-2}} {e^{m-3}}   \\
-   \Rightarrow\quad & e^{\frac 1{a_1} - 1} \leq \left(\frac {a_1}{e}\right)^{m-2}   \\
+   e^{\frac 1 {a_1}} & \leq \frac {a_1^{m-2}} {e^{m-3}} \\
+   e^{\frac 1{a_1} - 1} & \leq \left(\frac {a_1}{e}\right)^{m-2} \\
+   \frac 1 {a_1} - 1 & \leq (m-2) \ln \left(\frac {a_1}e \right) \\
    \end{aligned}
    $$
+
+   由于上文已证 $a_1 &lt; e$，故 $\dfrac{1}{a_1}>\dfrac{1}{e}$，原命题得证。
 
 <link rel="stylesheet" href="./assets/han.min.css"><link rel="stylesheet" href="./latex.css"><script>markdeepOptions={tocStyle:'none',progressBar: true,}</script><style class="fallback">body{visibility:hidden}</style><script src="./assets/markdeep.min.js" charset="utf-8"></script><script src="./assets/han.min.css"></script>
