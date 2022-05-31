@@ -45,6 +45,7 @@ jobs:
     - name: Copy files
       run: |
         Copy-Item .\assets .\dist -Recurse
+        Copy-Item .\images .\dist -Recurse
         Copy-Item .\README.md .\dist
         Copy-Item .\*.css .\dist
         Copy-Item .\*.md.html .\dist
