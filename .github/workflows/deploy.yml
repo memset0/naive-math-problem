@@ -1,4 +1,4 @@
-name: Generate PDF
+name: Deploy
 on:
   push:
     branches:
@@ -25,9 +25,10 @@ jobs:
     - name: Install selenium
       run: pip install selenium
     
-    # - name: Clean dist folder
-    #   run: rd /s /q dist
-    #   shell: cmd
+    - name: Clean dist folder
+      run: |
+        if (Test-Path .\dist) { Remove-Item .\dist -Recurse -Force }
+        mkdir dist
     
     - name: Convert Statement to PDF
       run: python build-slides.py
@@ -40,3 +41,18 @@ jobs:
       with:
         name: artifacts
         path: ./dist
+
+    - name: Copy files
+      run: |
+        Copy-Item .\assets .\dist -Recurse
+        Copy-Item .\README.md .\dist
+        Copy-Item .\*.css .\dist
+        Copy-Item .\*.md.html .\dist
+    
+    - name: Deploy pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./dist
+        publish_branch: docs
+        force_orphan: true
