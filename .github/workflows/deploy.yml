@@ -1,14 +1,15 @@
-name: Deploy
+name: main-deployment
 on:
   push:
     branches:
       - master
+
 jobs:
   build:
     runs-on: windows-latest
     steps:
 
-    - name: Checkout
+    - name: Checkout current branch
       uses: actions/checkout@v1
 
     - name: Setup Python
@@ -25,15 +26,15 @@ jobs:
     - name: Install selenium
       run: pip install selenium
     
-    - name: Clean dist folder
+    - name: Clean the dist folder
       run: |
         if (Test-Path .\dist) { Remove-Item .\dist -Recurse -Force }
         mkdir dist
     
-    - name: Convert Statement to PDF
+    - name: Convert the statement to PDF format
       run: python build-slides.py
     
-    - name: Convert Solution to PDF
+    - name: Convert the solution to PDF format
       run: python build-latex.py
 
     - name: Upload artifacts
@@ -47,6 +48,7 @@ jobs:
         Copy-Item .\assets .\dist -Recurse
         Copy-Item .\images .\dist -Recurse
         Copy-Item .\README.md .\dist
+        Copy-Item .\_config.yml .\dist
         Copy-Item .\*.css .\dist
         Copy-Item .\*.md.html .\dist
     

@@ -1,10 +1,8 @@
-# naive-math-problem
-
 非常 naive 的高考数学每日一题，用于在班内分享。大部分题目来自于网络，仅供学习交流使用，版权归原作者所有。
 
 您可以在此处浏览网页形式的题面和题解，以及自动生成的 pdf 版本。
 
-### Links & Screeshots
+## Links & Screeshots
 
 <table>
 <tbody>
